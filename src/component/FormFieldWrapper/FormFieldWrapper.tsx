@@ -12,7 +12,6 @@ const FormFieldWrapper = (props: IFormFieldWrapper) => {
   };
 
   const renderFormField = (field: any) => {
-    console.log(field);
     const { type } = field;
     switch (type) {
       case "textarea":
@@ -41,6 +40,7 @@ const FormFieldWrapper = (props: IFormFieldWrapper) => {
             label={field?.label}
             type="radio"
             customclass={classes.radio}
+            onChange={handleOnChange}
           />
         );
       default:

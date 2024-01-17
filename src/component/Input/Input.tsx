@@ -14,7 +14,6 @@ const Input = (props: any) => {
     maxLength,
     customclass,
   } = props;
-  console.log(minLength, maxLength);
   return (
     <div className={`${classes.inputWrapper} `}>
       {label && (
