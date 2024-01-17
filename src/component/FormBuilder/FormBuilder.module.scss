@@ -1,0 +1,19 @@
+.buttonsContainer {
+  display: flex;
+  padding-bottom: 1rem;
+  gap: 1rem;
+}
+
+.containerWrapper {
+  padding: 1rem;
+}
+.buttons {
+  padding-top: 1rem;
+  gap: 1rem;
+  display: flex;
+}
+.subButtons {
+  background-color: rgb(217, 222, 222);
+  border: black;
+  color: black;
+}

@@ -1,0 +1,58 @@
+.textInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit {
+  width: 5rem !important;
+  text-align: center;
+}
+.editRemoveButton {
+  display: flex;
+  gap: 1rem;
+}
+.modalStyle {
+  width: 41rem;
+  background-color: #e2e2e2;
+  margin-left: 27rem;
+  margin-top: 23rem;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+.inputEditField {
+  width: fit-content;
+}
+
+.fields {
+  display: flex;
+flex-direction: column;
+  // align-items: center;
+}
+
+.selectField {
+  width: 15rem;
+  height: 3rem;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  
+  border: none;
+  border: 1px solid gray;
+}
+
+.labelForlabelField {
+  // padding-right: 6rem;
+}
+
+.fieldTypelabel {
+  // display: flex;
+  // justify-content: center;
+  
+  // padding-right: 4rem !important;
+}
+.closeModal {
+  text-align: right;
+  cursor: pointer;
+}

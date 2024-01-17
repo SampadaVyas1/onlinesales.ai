@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import FormBuilder from "./component/FormBuilder/FormBuilder";
+import FormRender from "./component/FormRender/FormRender";
 
 function App() {
+  const [formData, setFormData] = useState([]);
+
+  const handleFormSubmit = (data: any) => {
+    console.log("Form data submitted:", data);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="mainTitle">Dynamic Form Generator</h1>
+      <FormBuilder
+        formData={formData}
+        setFormData={setFormData}
+        onSubmit={handleFormSubmit}
+      />
     </div>
   );
 }
