@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FormField from "../FormField/FormField";
 import Button from "../Button/Button";
 import classes from "./FormBuilder.module.scss";
+import { IFormBuilder } from "./IFormBuilder";
 
-const FormBuilder = ({ formData, setFormData, onSubmit }: any) => {
-  const [formFields, setFormFields] = useState<any>([]);
-  const [jsonConfig, setJson] = useState<any>();
-  console.log(formFields);
+const FormBuilder = ({ onSubmit }: IFormBuilder) => {
+  const [formFields, setFormFields] = useState<any[]>([]);
+  const [jsonConfig, setJson] = useState<string>();
 
   const addFormField = (fieldType: any) => {
-    setFormFields([...formFields, { type: fieldType, label: "" }]);
+    setFormFields([
+      ...formFields,
+      {
+        type: fieldType,
+        label: "",
+        placeholder: "",
+        required: false,
+        minLength: 0,
+        maxLength: 0,
+      },
+    ]);
   };
 
   const removeFormField = (index: number) => {
@@ -18,28 +28,37 @@ const FormBuilder = ({ formData, setFormData, onSubmit }: any) => {
     setFormFields(updatedFormFields);
   };
 
-  const handleFieldChange = (index: number, key: any, value: any) => {
+  const handleFieldChange = (index: number, key: number, value: any) => {
     const updatedFormFields = [...formFields];
+
     updatedFormFields[index][key] = value;
     setFormFields(updatedFormFields);
   };
   const saveFormConfiguration = () => {
     const jsonConfig = JSON.stringify(formFields);
     setJson(jsonConfig);
-    console.log("Saved form configuration:", jsonConfig);
-  };
-
-  const loadFormConfiguration = (jsonConfig: any) => {
-    const parsedConfig = JSON.parse(jsonConfig);
-    setFormFields(parsedConfig);
   };
 
   const handleSubmit = () => {
-    const formData = formFields.map(({ type, label, options }: any) => ({
-      type,
-      label,
-      options,
-    }));
+    const formData = formFields.map(
+      ({
+        type,
+        label,
+        options,
+        placeholder,
+        required,
+        minLength,
+        maxLength,
+      }: any) => ({
+        type,
+        label,
+        options: options?.split(","),
+        placeholder,
+        required,
+        minLength,
+        maxLength,
+      })
+    );
 
     onSubmit(formData);
   };
@@ -53,7 +72,7 @@ const FormBuilder = ({ formData, setFormData, onSubmit }: any) => {
         <Button onClick={() => addFormField("checkbox")}>Add Checkbox</Button>
         <Button onClick={() => addFormField("radio")}>Add Radio Button</Button>
       </div>
-      {formFields.map((field: any, index: any) => (
+      {formFields.map((field: any, index: number) => (
         <FormField
           key={index}
           index={index}
@@ -67,15 +86,15 @@ const FormBuilder = ({ formData, setFormData, onSubmit }: any) => {
           Submit Form
         </Button>
         <Button onClick={saveFormConfiguration} className={classes.subButtons}>
-          Save Configuration
-        </Button>
-        <Button
-          onClick={() => loadFormConfiguration(jsonConfig)}
-          className={classes.subButtons}
-        >
-          Load Configuration
+          Get Json
         </Button>
       </div>
+      {jsonConfig && (
+        <div className={classes.jsonData}>
+          JsonData
+          <div>{jsonConfig}</div>
+        </div>
+      )}
     </div>
   );
 };

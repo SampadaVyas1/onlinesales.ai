@@ -1,7 +1,10 @@
 .textInputWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  gap: 3rem;
+  border: 1px solid gray;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
 }
 
 .edit {
@@ -10,6 +13,7 @@
 }
 .editRemoveButton {
   display: flex;
+  margin-top: 1rem;
   gap: 1rem;
 }
 .modalStyle {
@@ -26,8 +30,7 @@
 
 .fields {
   display: flex;
-flex-direction: column;
-  // align-items: center;
+  flex-direction: column;
 }
 
 .selectField {
@@ -37,22 +40,19 @@ flex-direction: column;
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
-  
+
   border: none;
   border: 1px solid gray;
 }
 
-.labelForlabelField {
-  // padding-right: 6rem;
+.dropDownWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
-.fieldTypelabel {
-  // display: flex;
-  // justify-content: center;
-  
-  // padding-right: 4rem !important;
-}
-.closeModal {
-  text-align: right;
-  cursor: pointer;
+.label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: rgb(121, 123, 124);
 }

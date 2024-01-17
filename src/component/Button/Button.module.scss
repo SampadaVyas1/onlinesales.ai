@@ -1,7 +1,11 @@
 .buttonWrapper {
-  padding: 0.6rem;
+  padding: 0.5rem;
   background-color: #4e4f4f;
   width: fit-content;
   color: white;
   border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }

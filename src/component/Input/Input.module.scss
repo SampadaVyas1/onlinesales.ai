@@ -8,3 +8,20 @@ input {
   border: none;
   border: 1px solid gray;
 }
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.checkbox {
+  width: 2rem;
+}
+.checkboxwrapper {
+  // flex-direction: row;
+  // align-items: center;
+}
+
+.required {
+  color: red;
+}

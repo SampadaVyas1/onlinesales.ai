@@ -1,11 +1,14 @@
-import React from "react";
 import classes from "./Button.module.scss";
-const Button = (props: any) => {
+import { IButton } from "./IButton";
+const Button = (props: IButton) => {
   const { children, onClick, className } = props;
   return (
-    <div className={`${classes.buttonWrapper} ${className}`} onClick={onClick}>
+    <button
+      className={`${classes.buttonWrapper} ${className}`}
+      onClick={onClick}
+    >
       {children}
-    </div>
+    </button>
   );
 };
 

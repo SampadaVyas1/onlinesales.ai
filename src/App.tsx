@@ -1,23 +1,28 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
 import FormBuilder from "./component/FormBuilder/FormBuilder";
 import FormRender from "./component/FormRender/FormRender";
 
 function App() {
   const [formData, setFormData] = useState([]);
+  const [formFields, setFormFields] = useState([]);
 
   const handleFormSubmit = (data: any) => {
-    console.log("Form data submitted:", data);
+    setFormFields(data);
   };
   return (
-    <div>
-      <h1 className="mainTitle">Dynamic Form Generator</h1>
-      <FormBuilder
-        formData={formData}
-        setFormData={setFormData}
-        onSubmit={handleFormSubmit}
-      />
+    <div className="formWrapper">
+      <div className="formBuilder">
+        <h1 className="mainTitle">Dynamic Form Generator</h1>
+        <FormBuilder
+          formData={formData}
+          setFormData={setFormData}
+          onSubmit={handleFormSubmit}
+        />
+      </div>
+      <div className="formRender">
+        <FormRender formField={formFields} />
+      </div>
     </div>
   );
 }
